@@ -1,4 +1,4 @@
-package sk.iggy.nextgenshopping.ui.search
+package sk.iggy.nextgenshopping.ui.shoppingcart
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,12 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import sk.iggy.nextgenshopping.databinding.FragmentSearchBinding
+import sk.iggy.nextgenshopping.databinding.FragmentShoppingCartBinding
 
-class SearchFragment : Fragment() {
+class ShoppingCartFragment : Fragment() {
 
-    private lateinit var searchViewModel: SearchViewModel
-    private var _binding: FragmentSearchBinding? = null
+    private lateinit var notificationsViewModel: ShoppingCartViewModel
+    private var _binding: FragmentShoppingCartBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -24,14 +24,14 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        searchViewModel =
-            ViewModelProvider(this).get(SearchViewModel::class.java)
+        notificationsViewModel =
+            ViewModelProvider(this).get(ShoppingCartViewModel::class.java)
 
-        _binding = FragmentSearchBinding.inflate(inflater, container, false)
+        _binding = FragmentShoppingCartBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textDashboard
-        searchViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.textNotifications
+        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

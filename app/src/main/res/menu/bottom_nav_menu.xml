@@ -1,25 +1,23 @@
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="sk.iggy.nextgenshopping.MainActivity">
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/nav_menu_search"
+        android:id="@+id/navigation_search"
         android:icon="@drawable/ic_baseline_search"
-        android:title="Search" />
+        android:title="@string/title_search" />
 
     <item
-        android:id="@+id/nav_menu_map"
-        android:icon="@drawable/ic_baseline_location"
-        android:title="Map" />
+        android:id="@+id/navigation_map"
+        android:icon="@drawable/ic_baseline_map"
+        android:title="@string/title_map" />
 
     <item
-        android:id="@+id/nav_menu_shopping_list"
+        android:id="@+id/navigation_shopping_cart"
         android:icon="@drawable/ic_baseline_shopping_cart"
-        android:title="Shopping list" />
+        android:title="@string/title_shopping_cart" />
 
     <item
-        android:id="@+id/nav_menu_account"
+        android:id="@+id/navigation_account"
         android:icon="@drawable/ic_baseline_account"
-        android:title="Account" />
-
+        android:title="@string/title_account" />
 </menu>

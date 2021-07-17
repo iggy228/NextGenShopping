@@ -1,12 +1,12 @@
 package sk.iggy.nextgenshopping
 
 import android.os.Bundle
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import sk.iggy.nextgenshopping.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -22,12 +22,14 @@ class MainActivity : AppCompatActivity() {
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_search,
-                R.id.nav_map,
-                R.id.nav_shopping_list,
-                R.id.nav_account
+                R.id.navigation_search,
+                R.id.navigation_map,
+                R.id.navigation_shopping_cart,
+                R.id.navigation_account
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
