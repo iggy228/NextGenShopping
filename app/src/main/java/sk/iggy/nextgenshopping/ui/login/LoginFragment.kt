@@ -56,7 +56,7 @@ class LoginFragment : Fragment() {
             Thread{
                 if(binding.loginName.toString() != "" && binding.password.toString() != null){
                     val database = AppDatabase.getDatabase(activity?.application!!)
-                    database.getUserDao().insert(User(0, binding.loginName.toString(), binding.password.toString()))
+                    database.getUserDao().insert(User(0, binding.loginName.toString(), binding.password.toString(), 0))
                 }
             }
         }
