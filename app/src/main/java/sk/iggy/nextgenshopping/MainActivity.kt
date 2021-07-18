@@ -7,6 +7,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import sk.iggy.nextgenshopping.database.AppDatabase
+import sk.iggy.nextgenshopping.database.user.User
 import sk.iggy.nextgenshopping.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
