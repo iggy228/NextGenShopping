@@ -4,12 +4,15 @@ import android.app.Application
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import sk.iggy.nextgenshopping.database.retail.Retail
+import sk.iggy.nextgenshopping.database.retail.RetailDao
 import sk.iggy.nextgenshopping.database.user.User
 import sk.iggy.nextgenshopping.database.user.UserDao
 
-@Database(entities = arrayOf(User::class), version = 1)
+@Database(entities = arrayOf(User::class, Retail::class), version = 1)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun getUserDao() : UserDao
+    abstract fun getRetailDao() : RetailDao
 
 
     companion object Database{
