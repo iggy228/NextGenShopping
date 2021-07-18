@@ -41,27 +41,27 @@ class LoginFragment : Fragment() {
         val root: View = binding.root
 
         //TODO("need to be completed")
-        binding.login.setOnClickListener(){
+        binding.buttonLogin.setOnClickListener(){
             Thread{
-                if(binding.loginName.toString() != "" && binding.password.toString() != "") {
+                if(binding.inputName.toString() != "" && binding.inputPassword.toString() != "") {
                     var database = AppDatabase.getDatabase(activity?.application!!)
-                    val user = database.getUserDao().getUser(binding.loginName.toString(), binding.password.toString())
+                    val user = database.getUserDao().getUser(binding.inputName.toString(), binding.inputPassword.toString())
                     if(user != null)
                         LoggedUser.user = user
                 }
             }.start()
         }
 
-        binding.signUp.setOnClickListener(){
+        binding.buttonSignUp.setOnClickListener(){
             Thread{
-                if(binding.loginName.toString() != "" && binding.password.toString() != null){
+                if(binding.inputName.toString() != "" && binding.inputPassword.toString() != ""){
                     val database = AppDatabase.getDatabase(activity?.application!!)
-                    database.getUserDao().insert(User(0, binding.loginName.toString(), binding.password.toString(), 0))
+                    database.getUserDao().insert(User(0, binding.inputName.toString(), binding.inputPassword.toString(), 0))
                 }
             }
         }
 
-        binding.noLogin.setOnClickListener(){
+        binding.buttonNoLogin.setOnClickListener(){
             TODO("close this fragment / change to navigation")
         }
 

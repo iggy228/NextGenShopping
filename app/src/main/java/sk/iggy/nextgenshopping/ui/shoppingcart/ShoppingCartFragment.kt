@@ -4,13 +4,15 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import sk.iggy.nextgenshopping.databinding.FragmentShoppingCartBinding
+import sk.iggy.nextgenshopping.ui.shoppingcart.model.Product
 
 class ShoppingCartFragment : Fragment() {
+
+    private lateinit var recyclerView: RecyclerView
 
     private lateinit var notificationsViewModel: ShoppingCartViewModel
     private var _binding: FragmentShoppingCartBinding? = null
@@ -24,16 +26,20 @@ class ShoppingCartFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-            ViewModelProvider(this).get(ShoppingCartViewModel::class.java)
-
         _binding = FragmentShoppingCartBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textNotifications
-        notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        recyclerView = binding.productRecyclerView
+        recyclerView.layoutManager = LinearLayoutManager(root.context, LinearLayoutManager.VERTICAL, false)
+        recyclerView.adapter = ProductAdapter(
+            arrayOf(
+                Product("bread", 2),
+                Product("apple", 7),
+                Product("orange", 6),
+                Product("lemon", 1),
+            )
+        )
+
         return root
     }
 
